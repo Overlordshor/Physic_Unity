@@ -23,6 +23,11 @@ public class Bullet : MonoBehaviour
             {
                 enemy.OnHit();
             }
+            Head head = collision.collider.GetComponent<Head>();
+            if (head)
+            {
+                Debug.Log(head + "SHOT");
+            }
 
             _isActive = false;
         }
