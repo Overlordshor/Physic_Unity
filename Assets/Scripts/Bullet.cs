@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public Action OnHit;
     private Rigidbody _rigidbody;
+    private bool _isActive = true;
 
     private void Start()
     {
@@ -13,7 +14,11 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("HIT: " + collision.gameObject);
-        _rigidbody.useGravity = true;
+        if (_isActive)
+        {
+            _rigidbody.useGravity = true;
+            Debug.Log(collision.gameObject.name);
+            _isActive = false;
+        }
     }
 }
