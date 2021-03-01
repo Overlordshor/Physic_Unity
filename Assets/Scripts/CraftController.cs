@@ -15,7 +15,6 @@ public class CraftController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
         var horizontal = Input.GetAxis("Horizontal") * _rotateSpeed;
