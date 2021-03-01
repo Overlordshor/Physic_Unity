@@ -18,6 +18,12 @@ public class Bullet : MonoBehaviour
         {
             _rigidbody.useGravity = true;
             Debug.Log(collision.gameObject.name);
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            if (enemy)
+            {
+                enemy.OnHit();
+            }
+
             _isActive = false;
         }
     }
